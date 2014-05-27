@@ -20,7 +20,7 @@ Feature:  Test
 			as a : shell fan
 			I want to test the load time
 
-		Scenario: test N times the time of loading and show these N times
+		Scenario: test N times and show the time of loading and show these N times
 			Given : I entered a fake url option `-url "http://fake"` and time option `-times N`
 			And : any other option
 			When : I press enter
