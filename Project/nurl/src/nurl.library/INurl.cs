@@ -20,7 +20,8 @@ namespace nurl.library
         /// </summary>
         /// <param name="url">Url of page.</param>
         /// <param name="path">Path to save content page</param>
-        void GetAndSave(string url, string path);
+        /// <returns>Content page</returns>
+        string GetAndSave(string url, string path);
 
         /// <summary>
         /// Test n times the time of loading and return these N times

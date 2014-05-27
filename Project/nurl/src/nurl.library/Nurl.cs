@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.IO;
 
 namespace nurl.library
 {
@@ -34,9 +35,14 @@ namespace nurl.library
             }
         }
 
-        public void GetAndSave(string url, string path)
+        public string GetAndSave(string url, string path)
         {
-            throw new NotImplementedException();
+            var content = Get(url);
+            using(var file = File.CreateText(path))
+            {
+                file.WriteAsync(content);
+            }
+            return content;
         }
 
         public IEnumerable<decimal> Test(string url, int n)
