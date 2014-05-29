@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="INurl.cs" />
+    <Compile Include="Interface\INurl.cs" />
+    <Compile Include="Interface\INurlCommand.cs" />
     <Compile Include="Nurl.cs" />
+    <Compile Include="NurlCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

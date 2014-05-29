@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using nurl.library.Interface;
 
 namespace nurl.library
 {
@@ -12,37 +13,51 @@ namespace nurl.library
     {
         private WebClient wClient = new WebClient();
 
-        public string Get(string url)
+        public string Get(string uri)
         {
             try
             {
-                return this.wClient.DownloadString(url);
+                return this.wClient.DownloadString(uri);
             }
-            catch(ArgumentNullException ex)
+            catch (ArgumentNullException ex)
             {
                 Console.Error.WriteLine(ex.StackTrace);
                 throw;
             }
-            catch(WebException ex)
+            catch (WebException ex)
             {
                 Console.Error.WriteLine(ex.StackTrace);
                 throw;
             }
-            catch(NotSupportedException ex)
+            catch (NotSupportedException ex)
             {
                 Console.Error.WriteLine(ex.StackTrace);
                 throw;
             }
         }
 
-        public string GetAndSave(string url, string path)
+        public void Save(string uri, string path)
         {
-            var content = Get(url);
-            using(var file = File.CreateText(path))
+            try
             {
-                file.WriteAsync(content);
+
+                wClient.DownloadFile(uri, path);
             }
-            return content;
+            catch (ArgumentNullException ex)
+            {
+                Console.Error.WriteLine(ex.StackTrace);
+                throw;
+            }
+            catch (WebException ex)
+            {
+                Console.Error.WriteLine(ex.StackTrace);
+                throw;
+            }
+            catch (NotSupportedException ex)
+            {
+                Console.Error.WriteLine(ex.StackTrace);
+                throw;
+            }
         }
 
         public IEnumerable<decimal> Test(string url, int n)
