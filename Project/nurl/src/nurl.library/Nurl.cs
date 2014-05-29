@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 using nurl.library.Interface;
+using System.Diagnostics;
 
 namespace nurl.library
 {
@@ -60,14 +61,21 @@ namespace nurl.library
             }
         }
 
-        public IEnumerable<decimal> Test(string url, int n)
+        public IEnumerable<long> Test(string uri, int n)
         {
-            throw new NotImplementedException();
+            var sw = new Stopwatch();
+            for(int i = 0; i<n; i++)
+            {
+                sw.Restart();
+                Get(uri);
+                sw.Stop();
+                yield return sw.ElapsedMilliseconds;
+            }
         }
 
-        public decimal TestAvg(string url, int n)
+        public long TestAvg(string url, int n)
         {
-            throw new NotImplementedException();
+            return Test(url, n).AsParallel().Sum();
         }
     }
 }

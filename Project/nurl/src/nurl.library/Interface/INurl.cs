@@ -28,7 +28,7 @@ namespace nurl.library
         /// <param name="uri">uri of page.</param>
         /// <param name="n">Number of time it would be tested</param>
         /// <returns>IEnumerable<decimal> N times</returns>
-        IEnumerable<decimal> Test(string uri, int n);
+        IEnumerable<long> Test(string uri, int n);
 
         /// <summary>
         /// Test n times the time of loading and return the average.
@@ -36,6 +36,6 @@ namespace nurl.library
         /// <param name="uri">uri of page</param>
         /// <param name="n">Number of time it would be tested</param>
         /// <returns>decimal average</returns>
-        decimal TestAvg(string uri, int n);
+        long TestAvg(string uri, int n);
     }
 }

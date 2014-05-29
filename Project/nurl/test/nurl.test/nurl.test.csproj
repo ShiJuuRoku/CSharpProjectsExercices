@@ -50,8 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="NurlTest\NurlTest.cs" />
+    <Compile Include="NurlTest\NurlGetTest.cs" />
     <Compile Include="NurlTest\NurlCommandTest.cs" />
+    <Compile Include="NurlTest\NurlTestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
